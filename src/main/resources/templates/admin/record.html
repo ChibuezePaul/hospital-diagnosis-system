@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="description" content="Responsive Admin Template" />
+    <meta name="author" content="SmartUniversity" />
+    <title>Black Hotel | Longbridge</title>
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" type="text/css" />
+	<!-- icons -->
+    <link href="../assets/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+	<!--bootstrap -->
+	<link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/summernote/summernote.css" rel="stylesheet">
+  	<!-- data tables -->
+    <link href="../assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css"/>
+
+	<!-- morris chart -->
+    <link href="../assets/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+    <!-- Material Design Lite CSS -->
+	<link rel="stylesheet" href="../assets/plugins/material/material.min.css">
+	<link rel="stylesheet" href="../assets/css/material_style.css">
+	<!-- animation -->
+	<link href="../assets/css/pages/animate_page.css" rel="stylesheet">
+	<!-- Template Styles -->
+    <link href="../assets/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/theme-color.css" rel="stylesheet" type="text/css" />
+	<!-- favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" /> 
+    <script src="../html2canvas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script>
+        function capture(){
+
+
+            html2canvas(document.querySelector("#myscreen")).then(canvas => {
+                $('#screenshot').attr('href', canvas.toDataURL('image/png'));
+                $('#screenshot').attr('download', 'ScreenShot.png');
+                $('#screenshot')[0].click();
+            });
+
+        }
+    </script>
+ </head>
+ <!-- END HEAD -->
+<body class="page-header-fixed sidemenu-closed-hidelogo page-content-white page-md header-white dark-sidebar-color logo-dark" id="myscreen">
+    <div class="page-wrapper">
+        <!-- start header -->
+        <div class="page-header navbar navbar-fixed-top">
+            <div class="page-header-inner ">
+                <!-- logo start -->
+                <div class="page-logo">
+                    <a href="/home">
+                    <img alt="" src="../assets/img/logo.png">
+                    <span class="logo-default" >Hospital</span> </a>
+                </div>
+                <!-- logo end -->
+				<ul class="nav navbar-nav navbar-left in">
+					<li><a href="#" class="menu-toggler sidebar-toggler"><i class="icon-menu"></i></a></li>
+				</ul>
+                                 
+                <!-- start mobile menu -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span></span>
+                </a>
+               <!-- end mobile menu -->
+                <!-- start header menu -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        
+                        <!-- end message dropdown -->
+                        <li>
+                           <a href="/logout">
+                             <i class="icon-logout"></i> Log Out </a>
+                        </li>
+ 						
+                        <!-- end manage user dropdown -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end header -->
+        <!-- start page container -->
+        <div class="page-container">
+ 			<!-- start sidebar menu -->
+ 			<div class="sidebar-container">
+ 				<div class="sidemenu-container navbar-collapse collapse fixed-menu">
+	                <div id="remove-scroll">
+	                    <ul class="sidemenu page-header-fixed p-t-20" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+	                        <li class="sidebar-toggler-wrapper hide">
+	                            <div class="sidebar-toggler">
+	                                <span></span>
+	                            </div>
+	                        </li>
+	                        <li class="sidebar-user-panel">
+	                            <div class="user-panel">
+	                                <div class="row">
+                                            <div class="sidebar-userpic">
+                                                <img src="../assets/img/dp.jpg" class="img-responsive" alt=""> </div>
+                                        </div>
+                                        <div class="profile-usertitle">
+                                            <div class="sidebar-userpic-name">User</div>
+                                            <div class="profile-usertitle-job"> Doctor </div>
+                                        </div>
+
+	                            </div>
+                            </li>
+                            
+	                        <li class="nav-item start active">
+	                            <a href="/home" class="nav-link nav-toggle">
+	                                <i class="material-icons">dashboard</i>
+	                                <span class="title">Dashboard</span>
+                                	<span class="selected"></span>
+	                            </a>
+	                        </li>
+	                        <li class="nav-item">
+	                            <a href="/activitylog/list" class="nav-link nav-toggle">
+	                                <i class="material-icons">email</i>
+	                                <span class="title">Activity Log</span>
+	                            </a>
+	                        </li>
+	                        <li class="nav-item">
+	                            <a href="/diagnosis/list" class="nav-link nav-toggle">
+	                                <i class="material-icons">business_center</i>
+	                                <span class="title">View All Diagnosis</span>
+	                            </a>
+	                            
+	                        </li>
+	                        
+	                        <li class="nav-item">
+	                            <a href="#" class="nav-link nav-toggle">
+	                                <i class="material-icons">group</i>
+	                                <span class="title">Patients</span>
+	                                <span class="arrow"></span>
+	                            </a>
+	                            <ul class="sub-menu">
+	                                <li class="nav-item">
+	                                    <a href="/emergencyAccount/new" class="nav-link ">
+	                                        <span class="title">Emergency Patient</span>
+	                                    </a>
+	                                </li>
+	                                <li class="nav-item">
+	                                    <a href="/patient/new" class="nav-link ">
+	                                        <span class="title">Register Patient</span>
+	                                    </a>
+	                                </li>
+	                                <li class="nav-item">
+	                                    <a href="/patient/list" class="nav-link ">
+	                                        <span class="title">Registered Patients</span>
+	                                    </a>
+	                                </li>
+	                                
+	                            </ul>
+	                        </li>
+	                        
+	                        <li class="nav-item">
+	                            <a href="#" class="nav-link nav-toggle">
+	                                <i class="material-icons">group</i>
+	                                <span class="title">Staff</span>
+	                                <span class="arrow"></span>
+	                            </a>
+	                            <ul class="sub-menu">
+	                                <li class="nav-item">
+	                                    <a href="/signup" class="nav-link ">
+	                                        <span class="title">Add Staff Details</span>
+	                                    </a>
+	                                </li>
+	                                <li class="nav-item">
+	                                    <a href="/user/list" class="nav-link ">
+	                                        <span class="title">View All Staffs</span>
+	                                    </a>
+	                                </li>
+	                                
+	                            </ul>
+	                        </li>
+	                    </ul>
+	                </div>
+                </div>
+            </div>
+            <!-- end sidebar menu --> 
+			<!-- start page content -->
+            <div class="page-content-wrapper">
+                    <div class="page-content">
+                        <div class="page-bar">
+                            <div class="page-title-breadcrumb">
+                                <div class=" pull-left">
+                                    <div class="page-title">All <span th:text="${tbl}"></span></div>
+                                </div>
+                                <ol class="breadcrumb page-breadcrumb pull-right">
+                                    <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item" href="home">Home</a>&nbsp;<i class="fa fa-angle-right"></i>
+                                    </li>
+                                    
+                                    <li class="active">All <span th:text="${tbl}"></span></li>
+                                </ol>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="card card-box">
+                                    <div class="card-head">
+                                        <header>All <span th:text="${tbl}"></span></header>
+                                        <div class="tools">
+                                            <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                                            <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                                            <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body ">
+                                        
+                                        <div class="table-scrollable">
+                                        <table class="table table-hover table-checkable order-column full-width" id="example4">
+                                           <thead>
+                                                <tr>
+	                                           <span th:if="${tbl} eq 'user'">
+                                                    <th class="center"> ID </th>
+                                                    <th class="center"> Date Created </th>
+                                                    <th class="center"> Date Modified </th>
+                                                    <th class="center"> Password </th>
+                                                    <th class="center"> Phone No. </th>
+                                                    <th class="center"> Action </th>
+	                                            </span>
+	                                            
+	                                            <span th:if="${tbl} eq 'diagnosis'">
+                                                    <th class="center"> ID </th>
+                                                    <th class="center"> Ache Duration </th>
+                                                    <th class="center"> Appetite Loss </th>
+                                                    <th class="center"> Bitter Tongue </th>
+                                                    <th class="center"> Chest Pain </th>
+                                                    <th class="center"> Cold</th>
+                                                    <th class="center"> Cough </th>
+                                                    <th class="center"> Date Created </th>
+                                                    <th class="center"> Date Modified </th>
+                                                    <th class="center"> Dehydration</th>
+                                                    <th class="center"> fever </th>
+                                                    <th class="center"> Head Ache </th>
+                                                    <th class="center"> Muscle Pain </th>
+                                                    <th class="center"> Nausea </th>
+                                                    <th class="center"> Other </th>
+                                                    <th class="center"> Phone Number </th>
+                                                    <th class="center"> Rash </th>
+                                                    <th class="center"> Red Eye</th>
+                                                    <th class="center"> Stomach Pain </th>
+                                                    <th class="center"> Stooling </th>
+                                                    <th class="center"> Stress </th>
+                                                    <th class="center"> Sweating </th>
+                                                    <th class="center"> Tiredness </th>
+                                                    <th class="center"> Ulcer </th>
+                                                    <th class="center"> Vomiting </th>
+                                                    <th class="center"> Weight Loss </th>
+                                                    <th class="center"> Doctor's Prescription </th>
+													<th class="center"> Action </th>
+                                                    
+	                                            </span>
+	                                            
+	                                             <span th:if="${tbl} eq 'booking'">
+                                                    <th class="center"> ID </th>
+                                                    <th class="center"> Date Created </th>
+                                                    <th class="center"> Date Modified </th>
+                                                    <th class="center"> Check In </th>
+                                                    <th class="center"> Check Out </th>
+                                                    <th class="center"> Email </th>
+                                                    <th class="center"> First Name </th>
+                                                    <th class="center"> Last Name </th>
+                                                    <th class="center"> No Of Guests </th>
+                                                    <th class="center"> Payment </th>
+                                                    <th class="center"> Phone Number </th>
+                                                    <th class="center"> Room Id </th>
+                                                    <th class="center"> Action </th>
+	                                            </span>
+	                                            <span th:if="${tbl} eq 'activityLog'">
+                                                    <th class="center"> ID </th>
+                                                    <th class="center"> Message </th>
+                                                    <th class="center"> Time Stamp </th>
+                                                    <th class="center"> Action </th>
+	                                            </span>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:if="${data.empty}">
+										            <td colspan="5" class="text-center"> No Record Available </td>
+										        </tr>
+										        <tr th:each="_data : ${data}">
+										        	<th:block th:each="data :${_data}">
+										        		<th:block th:each="eachTableHead : ${tableHead}">
+										        			<td><span th:text="${data.get(eachTableHead)}">  </span></td>
+										        		</th:block>
+										        		
+										        		<td class="center">
+										        		
+	                                                        <a th:href="@{${data.id}}" class="btn btn-tbl-edit btn-xs">
+	                                                            <i class="fa fa-pencil" ></i>
+	                                                        </a>
+	                                                        <a th:href="'delete/'+@{${data.id}}" class="btn btn-tbl-edit btn-xs btn-danger">
+	                                                            <i class="fa fa-trash-o"></i>
+	                                                        </a>
+	                                                        
+	                                                    </td>
+													</th:block>
+													
+										        	
+										        </tr>
+                                            </tbody>
+                                        </table>
+										                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- end page content -->
+            
+        </div>
+        <!-- end page container -->
+        <!-- start footer -->
+        <div class="page-footer">
+            <div class="page-footer-inner"> 2019 &copy; Hospital
+            <a href="mailto:amosokomayin@gmail.com" target="_top" class="makerCss">Haymouz Concept</a>
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
+            </div>
+        </div>
+        <!-- end footer -->
+    </div>
+    <!-- start js include path -->
+    <script src="../assets/plugins/jquery/jquery.min.js" ></script>
+    <script src="../assets/plugins/popper/popper.min.js" ></script>
+    <script src="../assets/plugins/jquery-blockui/jquery.blockui.min.js" ></script>
+	<script src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- bootstrap -->
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js" ></script>
+    <script src="../assets/plugins/sparkline/jquery.sparkline.min.js" ></script>
+    <script src="../assets/js/pages/sparkline/sparkline-data.js" ></script>
+    <!-- data tables -->
+    <script src="../assets/plugins/datatables/jquery.dataTables.min.js" ></script>
+ 	<script src="../assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js" ></script>
+ 	<script src="../assets/js/pages/table/table_data.js" ></script>
+    <!-- Common js-->
+	<script src="../assets/js/app.js" ></script>
+    <script src="../assets/js/layout.js" ></script>
+    <script src="../assets/js/theme-color.js" ></script>
+    <!-- material -->
+    <script src="../assets/plugins/material/material.min.js"></script>
+    <!-- animation -->
+    <script src="../assets/js/pages/ui/animations.js" ></script>
+    <!-- morris chart -->
+    <script src="../assets/plugins/morris/morris.min.js" ></script>
+    <script src="../assets/plugins/morris/raphael-min.js" ></script>
+    <script src="../assets/js/pages/chart/morris/morris_home_data.js" ></script>
+    <!-- end js include path -->
+  </body>
+
+</html>
