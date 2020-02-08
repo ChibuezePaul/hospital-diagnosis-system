@@ -11,7 +11,7 @@ import com.example.demo.person.Person;
 public interface UserService {
 	
 //	Users Auth using User name and Password
-	String authenticateUser( String phoneNumber, String password, HttpServletRequest request);
+//	String authenticateUser( String phoneNumber, String password, HttpServletRequest request);
 
 	List<User> findAllUser(User user);
 	
@@ -28,7 +28,7 @@ public interface UserService {
 
 	List<Map<String, Object>> getRegForm();
 
-	User deleteUser(Long id);
+	void deleteUser(Long id);
 
 	List<Map<String, Object>> getStaffRegForm();
 	

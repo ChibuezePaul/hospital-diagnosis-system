@@ -35,34 +35,34 @@ public class UserServiceImpl implements UserService{
 	PasswordEncoder encode;
 	
 //	Authenticate Users login
-	@Override
-	public String authenticateUser(String phoneNumber, String password, HttpServletRequest request) {
-	
-		String checkPhoneNo = null;
-		String checkUserPassword = null;
-		List<User> userAuth= userRepository.findByPhoneNumber(phoneNumber);
-		String loginAuth="";
-//		Checks if user already exist
-		if (userAuth.isEmpty()) {
-//			If User doesn't  exists
-			return "login";
-		}
-		else {
-//			if phone number doesn't exist
-			checkPhoneNo = userAuth.get(0).getPhoneNumber();
-			checkUserPassword = userAuth.get(0).getPassword();
-
-			if((phoneNumber.equalsIgnoreCase(checkPhoneNo)) && (encode.matches(password, checkUserPassword))) {				
-				
-//				Log The event
-				ActivityLog activityLog = new ActivityLog(phoneNumber+" Logged in", LocalDateTime.now());
-				activityLogRepository.save(activityLog);
-
-				loginAuth ="success";
-			}
-			return loginAuth;
-		}
-	}
+//	@Override
+//	public String authenticateUser(String phoneNumber, String password, HttpServletRequest request) {
+//
+//		String checkPhoneNo = null;
+//		String checkUserPassword = null;
+//		User userAuth= userRepository.findByPhoneNumber(phoneNumber);
+//		String loginAuth="";
+////		Checks if user already exist
+//		if (userAuth == null) {
+////			If User doesn't  exists
+//			return "login";
+//		}
+//		else {
+////			if phone number doesn't exist
+//			checkPhoneNo = userAuth.getPhoneNumber();
+//			checkUserPassword = userAuth.getPassword();
+//
+//			if((phoneNumber.equalsIgnoreCase(checkPhoneNo)) && (encode.matches(password, checkUserPassword))) {
+//
+////				Log The event
+//				ActivityLog activityLog = new ActivityLog(phoneNumber+" Logged in", LocalDateTime.now());
+//				activityLogRepository.save(activityLog);
+//
+//				loginAuth ="success";
+//			}
+//			return loginAuth;
+//		}
+//	}
 
 //	Returns a list of all registered user
 	@Override
@@ -273,9 +273,9 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public String registerUser(String fName, String lName, String phoneNumber, String password) {
 	
-		List<User> userAuth= userRepository.findByPhoneNumber(phoneNumber);
+		User userAuth= userRepository.findByPhoneNumber(phoneNumber);
 //		checks if phone number exists
-		if (!userAuth.isEmpty()) {
+		if (userAuth != null) {
 //			if phone number exists
 			return "admin/form";
 		}
@@ -331,9 +331,8 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User deleteUser(Long id) {
+	public void deleteUser(Long id) {
 		personRepository.deleteById(id-1);
-		return null;
 	}
 }
 

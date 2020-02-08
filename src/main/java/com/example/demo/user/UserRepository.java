@@ -10,9 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-	List<User> findByPhoneNumber(String phonenumber);
-	
-	List<User> findAll();
+	User findByPhoneNumber(String phonenumber);
 
 	@Query(value = "SELECT COLUMN_NAME FROM information_schema.columns where table_schema = 'medic' and table_name=:tableName", nativeQuery = true)
 	List<String> getColName(@Param("tableName") String tableName);

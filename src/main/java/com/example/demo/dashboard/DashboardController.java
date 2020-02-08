@@ -19,10 +19,7 @@ public class DashboardController {
 	
 //	Route to Admin HomePage
 	@GetMapping({"/home","/"})
-	public String home(Model model, HttpSession session) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
+	public String home(Model model) {
 		model.addAttribute("icon", new Dashboard());
 		model.addAttribute("dashboard1", iconService.fetchIcon());
 		return "admin/index";
@@ -30,10 +27,7 @@ public class DashboardController {
 
 //	Add new item to dashboard
 	@PostMapping(value="/save")
-	public String redirect(@ModelAttribute("icon") Dashboard icon, HttpSession session) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
+	public String redirect(@ModelAttribute("icon") Dashboard icon) {
 		System.out.println("Print Val: "+icon.toString());
 		iconService.addIcon(icon);
 		return "redirect:/home";

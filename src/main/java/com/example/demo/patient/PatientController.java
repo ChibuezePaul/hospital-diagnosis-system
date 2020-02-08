@@ -20,10 +20,7 @@ public class PatientController {
 	
 //	List of all Registered User 
 	@GetMapping("/patient/list")
-	public String show(Model model, HttpSession session) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
+	public String show(Model model) {
 		String tableName = "patient";
 	    model.addAttribute("tbl", "patient");
 	    model.addAttribute("tableHead", patientService.getColumns(tableName));
@@ -32,10 +29,7 @@ public class PatientController {
     }
 	
 	@GetMapping(value="/patient/new")
-    public String creatPatient(HttpSession session, Model model) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
+    public String creatPatient(Model model) {
 		model.addAttribute("form", patientService.getPatientForm(null));
 	    model.addAttribute("title", "Register Patient");
 	    model.addAttribute("route", "patient");
@@ -49,10 +43,7 @@ public class PatientController {
     }
 	
 	@GetMapping(value="/emergencyAccount/new")
-    public String emergencyAccount(HttpSession session, Model model) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
+    public String emergencyAccount(Model model) {
 		model.addAttribute("form", patientService.getEmergencyPatientForm(null));
 	    model.addAttribute("title", "Register Patient");
 	    model.addAttribute("route", "patient");

@@ -1,11 +1,7 @@
 package com.example.demo.user;
 
 import java.time.LocalDateTime;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 
 @Entity(name = "user")
@@ -29,22 +25,23 @@ public class User {
 	private String firstName;
 	
 	private String lastName;
-
+	
+	@Enumerated(EnumType.STRING)
+	private Roles role;
+	
 	public User() {
 	}
 
 	
 
-	public User(Long id, LocalDateTime dateCreated, LocalDateTime dateModified, String phoneNumber, String password,
-			String firstName, String lastName) {
-		super();
-		this.id = id;
-		this.dateCreated = dateCreated;
-		this.dateModified = dateModified;
+	public User( String phoneNumber, String password, String firstName, String lastName, Roles role) {
+		this.dateCreated = LocalDateTime.now ();
+		this.dateModified = LocalDateTime.now ();
 		this.phoneNumber = phoneNumber;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.role = role;
 	}
 
     public User(String phoneNumber, String encodedPassword) {
@@ -132,13 +129,32 @@ public class User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
-
+	
+	
+	
+	public Roles getRole () {
+		return role;
+	}
+	
+	
+	
+	public void setRole(Roles role) {
+		this.role = role;
+	}
+	
+	
 	@Override
-	public String toString() {
-		return "User [id=" + id + ", dateCreated=" + dateCreated + ", dateModified=" + dateModified + ", phoneNumber="
-				+ phoneNumber + ", password=" + password + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+	public String toString () {
+		return "User{" +
+			  "id=" + id +
+			  ", dateCreated=" + dateCreated +
+			  ", dateModified=" + dateModified +
+			  ", phoneNumber='" + phoneNumber + '\'' +
+			  ", password='" + password + '\'' +
+			  ", firstName='" + firstName + '\'' +
+			  ", lastName='" + lastName + '\'' +
+			  ", role=" + role +
+			  '}';
 	}
 	
 }

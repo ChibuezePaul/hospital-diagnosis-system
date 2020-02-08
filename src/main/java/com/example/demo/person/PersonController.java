@@ -18,10 +18,7 @@ public class PersonController {
 	
 //	List of all Registered User 
 	@GetMapping("/registered/list")
-	public String show(Model model, HttpSession session) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
+	public String show(Model model) {
 		String tableName = "user";
 	    model.addAttribute("tbl", "user");
 	    model.addAttribute("tableHead", personService.getColumns(tableName));

@@ -54,10 +54,7 @@ public class DiagnosisController {
 	
 //	List of all Diagonized Patients
 	@GetMapping("/diagnosis/list")
-	public String show(Model model, HttpSession session) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
+	public String show(Model model) {
 		String tableName = "diagnosis";
 	    model.addAttribute("tbl", "diagnosis");
 	    model.addAttribute("tableHead", diagnosisService.getColumns(tableName));
@@ -68,11 +65,7 @@ public class DiagnosisController {
 
 //	Doctor's Report
 	@GetMapping(value="/diagnosis/{id}")
-    public String docReport(@PathVariable("id") String id, HttpSession session, Model model) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
-		
+    public String docReport(@PathVariable("id") String id, Model model) {
 	    model.addAttribute("title", "Diagonise Patient");
 	    model.addAttribute("route", "diagonize");
 		model.addAttribute("form", diagnosisService.getDiagnosisForm(id));
@@ -96,29 +89,19 @@ public class DiagnosisController {
 	
 //	Redirect to list of diagonized patient
 	@GetMapping(value="/diagnosis/delete/{id}")
-    public String delete(@PathVariable("id") Long id, HttpSession session, Model model) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
-
+    public String delete(@PathVariable("id") Long id, Model model) {
 		return "redirect:/diagnosis/list";
     }
 	
 	@GetMapping(value= "/testRslt")
-    public String testRslt(Model model, HttpSession session) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "login";
-		}
+    public String testRslt(Model model) {
 		model.addAttribute("title", "Diagonise Patient");
 	    model.addAttribute("route", "diagonize");
 		return "admin/report";
     }
 
 	@GetMapping(value="/testRslt/{id}")
-    public String enterTestRslt(@PathVariable("id") Long id, HttpSession session, Model model) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
+    public String enterTestRslt(@PathVariable("id") Long id, Model model) {
 		Diagnosis diagnosis = diagnosisService.getPatDiagForReport(id);
 		model.addAttribute("diagnosis", diagnosis);
 		model.addAttribute("title", "Diagnosis Result");
@@ -135,10 +118,7 @@ public class DiagnosisController {
     }
 	
 	@GetMapping(value="/enterDocReport/{id}")
-    public String enterDocReport(@PathVariable("id") Long id, HttpSession session, Model model) {
-		if (session.getAttribute("MY_SESSION_MESSAGES")==null) {
-			return "redirect:/login";
-		}
+    public String enterDocReport(@PathVariable("id") Long id, Model model) {
 		Diagnosis diagnosis = diagnosisService.getPatDiagForReport(id);
 //		model.addAttribute("form", diagnosisService.getDocReportForm(diagnosis));
 		model.addAttribute("diagnosis", diagnosis);
